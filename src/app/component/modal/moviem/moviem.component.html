@@ -21,9 +21,9 @@
         #datepickerYMD="bsDatepicker"
         bsDatepicker
         formControlName="fecha_pub"
-        
-        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', isAnimated: true }"
         value="{{ fecha_pub | date: 'dd/MM/yyyy' }}"
+
+        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY', isAnimated: true }"
         >
         <span class="text-danger"
         *ngIf="(movieFormControl.fecha_pub.touched || submitted) && movieFormControl.fecha_pub.errors?.required">

@@ -47,7 +47,6 @@ public modalcrear(){
 
 public modalEditar(movi) {
   this.parsedata = localStorage.setItem('item_data', JSON.stringify(movi))
-  console.log(this.parsedata)
 
   const initialState = {
     item_data: [
