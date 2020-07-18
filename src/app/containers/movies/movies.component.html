@@ -1,0 +1,86 @@
+<div id="page-wrapper">
+    <div class="container-fluid">
+        <!-- Page Heading -->
+        <div class="row" id="main" >
+            <div class="col-sm-12 col-md-12 well" id="content">
+                <h1>¡Cesar Casares!</h1>
+                <p>Disculpe la demora de verdad tenía percances asi que espero revise, saludos.</p>
+                <img style="width:50px;height:50px;" src="https://aleteia.org/wp-content/uploads/sites/2/2017/11/web3-high-five-vs-praying-hands-emoji-yayayoyo-shutterstock.jpg?quality=100&strip=all&w=620&h=310&crop=1">
+                <br>
+                
+                <button type="button" class="btn btn-primary" (click)="modalcrear()" style="margin:20px">Crear Película</button>
+
+                <div class="container">
+                    <div class="row clearfix">
+                        <div class="col-md-12 table-responsive">
+                            <table class="table table-bordered table-hover table-sortable" id="tab_logic">
+                                <thead>
+                                    <tr >
+                                        <th class="text-center">
+                                            Id
+                                        </th>
+                                        <th class="text-center">
+                                            Nombre
+                                    
+                                        </th>
+                                        <th class="text-center">
+                                            F.Publicación
+                                        </th>
+                                        <th class="text-center">
+                                            Estado
+                                        </th>
+                                        <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let movi of movies">
+                                        <td data-name="name">
+                                            {{ movi._id }}
+                                        </td>
+                                        <td data-name="mail">
+                                            <img class="imagemovie" src="{{movi.imagen}}">
+
+                                            {{ movi.nombre }}
+                                        </td>
+                                        <td data-name="desc">
+                                            {{ movi.fecha_pub }}
+
+                                        </td>
+
+                                        <td data-name="del">
+                                            {{ movi.estado}}
+                                        </td>
+                                        <td>
+                                        <a (click)="modalEditar(movi)" class="btn btn-small btn-primary">Modificar
+										<i class="btn-icon-only icon-ok"></i>										
+									</a>
+                                    <button type="button" class="btn btn-danger" (click)="EliminarModal(template)">Eliminar</button>
+                                    <br><br>
+                                    <ng-template #template>
+                                        <div class="modal-body text-center">
+                                          <p>¿Estas seguro de que quieres eliminar esta Película?</p>
+                                          <button type="button" class="btn btn-default" (click)="confirm(movi._id)" >Sí</button>
+                                          <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+                                        </div>
+                                      </ng-template>
+<!-- 
+									<a (click)="deleteMovix(movi._id)" class="btn btn-danger btn-small">Eliminar
+										<i class="btn-icon-only icon-remove"></i>										
+									</a> -->
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+    
+</div>
+<!-- confirmar modal-->

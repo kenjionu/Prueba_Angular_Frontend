@@ -1,0 +1,57 @@
+<div class="modal-header">
+    <h4 class="modal-title pull-left">Editar Pelicula</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form novalidate [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+
+  <div class="modal-body">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Nombre</label>
+        <input type="text" class="form-control" type="text" class="form-control" formControlName="nombre" required >
+        <span class="text-danger"
+        *ngIf="(movieFormControl.nombre.touched || submitted) && movieFormControl.nombre.errors?.required">
+        Nombre es requerido
+    </span>
+    </div>
+      <div class="form-group">
+        <label for="exampleInputPassword1">Fecha de publicación</label>
+        <input type="text" class="form-control" formControlName="fecha_pub" required bsDatepicker ngModel
+        
+        [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY'}"
+        value="{{ fecha_pub | date: 'DD/MM/YYYY' }}"
+        >
+        <span class="text-danger"
+        *ngIf="(movieFormControl.fecha_pub.touched || submitted) && movieFormControl.fecha_pub.errors?.required">
+        Fecha de publicación es requerido
+    </span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Imagen URL</label>
+        <input type="text" class="form-control" class="form-control" formControlName="imagen" required>
+        <span class="text-danger"
+        *ngIf="(movieFormControl.imagen.touched || submitted) && movieFormControl.imagen.errors?.required">
+        Imagen URL es requerido
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Estado</label>
+        <select  class="form-control" formControlName="estado">
+            <option value="Disponible">Disponible</option>
+            <option value="No Disponible">No Disponible</option>
+        </select>
+        <span class="text-danger"
+        *ngIf="(movieFormControl.estado.touched || submitted) && movieFormControl.estado.errors?.required">
+        Estado es requerido
+    </span>
+    </div>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-success">Actualizar</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+
+  </div>
+</form>
